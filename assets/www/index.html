@@ -843,7 +843,7 @@
 	
 		<div class="content-primary">	
 			<label for="rangeTempo">Tempo(minutos):</label>
-			<input type="number" name="rangeTempo" id="rangeTempo" onChange="calcularGETAtividade();" onChange="calcularGETAtividade();" value="30" data-highlight="true" />
+			<input type="number" name="rangeTempo" id="rangeTempo" onKeyDown="calcularGETAtividade();" onChange="calcularGETAtividade();" value="30" data-highlight="true" />
 			<input type="hidden" name="GETAtividade" id="GETAtividade" value=""/>
 		</div><!--/content-primary -->	
 		
@@ -862,6 +862,18 @@
 		</div>
 
 	</div><!-- /content -->
+	
+	<div data-role="footer" data-theme="c" data-position="fixed">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#page" data-role="button" data-icon="gear" data-iconpos="top" data-prefetch="true" id="btnPerfil">Perfil</a></li>
+				<li><a href="#" data-role="button" data-icon="star" data-iconpos="top" data-prefetch="true" onClick="if($('#numberIMC').text() > 25){$.mobile.changePage('#TMB');}else{$.mobile.changePage('#TMBMM');}">TMB / GET</a></li>
+				<li><a href="#listaAtividades" data-role="button" data-icon="grid" data-iconpos="top" data-prefetch="true" id="btnAtividade">Atividades</a></li>
+				<li><a href="#diario" data-role="button" data-icon="grid" data-iconpos="top" data-prefetch="true" id="btnDiario">Get Detalhado</a></li>
+           		<li><a href="#meta" data-role="button" data-icon="grid" data-iconpos="top" data-prefetch="true" id="btnMeta">Meu Objetivo</a></li>
+			</ul>
+		</div>
+	</div>
 
 </div><!-- /page -->
 
