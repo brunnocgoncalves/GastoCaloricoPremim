@@ -658,7 +658,7 @@
 	
 	function calcularResultado(){
 		var x;
-		var get = calcularGET().toFixed(2);
+		var get = calcularGET().toFixed(2); //verificar se massa gorda ou normal
 		console.log("GET " + get);
 		console.log("Kilo " + $("#kiloMeta").val().replace(',','.'));
 		console.log("Calc " + $("#kiloMeta").val() * 256.7);
