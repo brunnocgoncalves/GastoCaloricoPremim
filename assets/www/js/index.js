@@ -279,7 +279,7 @@
 			$.mobile.changePage("#listaAtividades");
 		});*/
 		
-		onDeviceReady();
+		//onDeviceReady();
 	});
 	
 	$( "#TMB" ).on( "pageinit",function(event){
