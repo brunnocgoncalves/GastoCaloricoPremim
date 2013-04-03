@@ -7,8 +7,8 @@
 	var selectedatividadeMet;
 	var totalDiario;
 	var idAtividade;
-
-	// Wait for Cordova to load
+	
+    // Wait for Cordova to load
     //
     document.addEventListener("deviceready", onDeviceReady, false);
 
@@ -17,6 +17,13 @@
     function onDeviceReady() {
 		var db = window.openDatabase("Database", "1.0", "Gasto Calorico", 200000);
 		db.transaction(createTable, errorCB, createTableSucess);
+		document.addEventListener("menubutton", onMenuKeyDown, false);
+    }
+	
+	// Handle the menu button
+    //
+    function onMenuKeyDown() {
+		$('#fecharApp').popup("open");
     }
 	
 	function createTable(tx){
@@ -272,7 +279,7 @@
 			$.mobile.changePage("#listaAtividades");
 		});*/
 		
-		//onDeviceReady();
+		onDeviceReady();
 	});
 	
 	$( "#TMB" ).on( "pageinit",function(event){

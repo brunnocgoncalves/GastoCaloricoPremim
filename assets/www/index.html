@@ -37,6 +37,14 @@
 
 		<div class="ui-body ui-body-c">
 		
+			<div data-role="popup" id="fecharApp" data-theme="d" data-overlay-theme="b" class="ui-content" style="max-width:85%; padding-bottom:2em; width:85%">
+
+            <h3>Fechar aplicativo?</h3>
+					<p>O aplicativo será finalizado.</p>
+					<a href="#" data-role="button" data-rel="back" data-theme="b" data-icon="check" data-inline="true" data-mini="true" onClick="navigator.app.exitApp();">Confirmar</a>
+					<a href="#" data-role="button" data-rel="back" data-inline="true" data-mini="true">Cancelar</a>
+            </div>
+		
 			<div data-role="fieldcontain">
 				<fieldset data-role="controlgroup">
 					<legend>Gênero:</legend>
@@ -843,7 +851,7 @@
 	
 		<div class="content-primary">	
 			<label for="rangeTempo">Tempo(minutos):</label>
-			<input type="number" name="rangeTempo" id="rangeTempo" onKeyUp="calcularGETAtividade();" onChange="calcularGETAtividade();" value="30" data-highlight="true" />
+			<input type="number" name="rangeTempo" id="rangeTempo" onKeyUp="calcularGETAtividade();" value="30" data-highlight="true" />
 			<input type="hidden" name="GETAtividade" id="GETAtividade" value=""/>
 		</div><!--/content-primary -->	
 		
