@@ -23,7 +23,15 @@
 	// Handle the menu button
     //
     function onMenuKeyDown() {
-		$('#fecharApp').popup("open");
+		var r=confirm("Fechar aplicativo?")
+		if (r==true)
+		  {
+		  	navigator.app.exitApp();;
+		  }
+		else
+		  {
+		  	
+		  }
     }
 	
 	function createTable(tx){
