@@ -1296,18 +1296,21 @@
         
 	
 		<div class="content-primary">	
-        	<div class="ui-grid-b">
-
-        		<div class="ui-block-a"><div class="ui-bar ui-bar-c"><a href="#listaAtividadeSelect" data-rel="popup" data-position-to="window" data-transition="slideup" id="atividadeSelecionada">Selecionar Atividade</a></div></div>
-                <div class="ui-block-b"><div class="ui-bar ui-bar-c"><input type="number" name="duracaoAtividade" id="duracaoAtividade" onKeyUp="calcularKcal();" data-highlight="true" /></div></div>
-                <div class="ui-block-c"><div class="ui-bar ui-bar-c"><input type="number" disabled name="kcalAtividade" id="kcalAtividade" value="0" data-highlight="true" /></div></div>        
-            	
-            
-            </div><!-- /grid-b -->
+        	<ul data-role="listview" data-inset="true">
+		    <li>
+			    <a href="#listaAtividadeSelect" data-rel="popup" data-position-to="window" data-transition="slideup" id="atividadeSelecionada">Selecionar Atividade</a>
+		    </li>
+		    <li>
+			    <input type="number" name="duracaoAtividade" id="duracaoAtividade" onKeyUp="calcularKcal();" data-highlight="true" />
+		    </li>
+		    <li>
+			    <input type="number" disabled name="kcalAtividade" id="kcalAtividade" value="0" data-highlight="true" />
+		    </li>
+		</ul>
             
             <div class="ui-grid-b" id="gridAtividades">
 
-</div><!-- /grid-c -->
+	    </div><!-- /grid-c -->
         
 		</div><!--/content-primary -->	
         <div data-role="popup" id="atividadeExcluida" data-theme="d" data-overlay-theme="b" class="ui-content" style="max-width:85%; padding-bottom:2em; width:85%">
