@@ -70,15 +70,27 @@
 	function queryActivitySuccess(tx, results){
 		var total = 0;
 		var total1 = 0;
-		$('#gridAtividades').html('            	<div class="ui-block-a"><div class="ui-bar ui-bar-d">Atividade</div></div>                <div class="ui-block-b"><div class="ui-bar ui-bar-d">Duração</div></div>                <div class="ui-block-c"><div class="ui-bar ui-bar-d">Kcal</div></div>');
+                var len = results.rows.length;
+            var parent = document.getElementById('gridAtividades');
+            parent.innerHTML = '<li data-role="list-divider">Resgistro de atividades</li>';
+            for (var i=0; i<len; i++){
+                        total = total + parseFloat(results.rows.item(i).duracao);
+			total1 = total1 + parseFloat(results.rows.item(i).kcal);
+                    parent.innerHTML = parent.innerHTML + '<li><a href="#" onClick="excluirAtividade('+ results.rows.item(i).id +');">Executar a atividade <strong>"'+ results.rows.item(i).atividade +'"</strong> por <strong>'+ results.rows.item(i).duracao +'</strong> minutos, consumiu <strong>'+ results.rows.item(i).kcal +'</strong> calorias.</a></li>';
+            }
+            totalDiario = total /60;
+            parent.innerHTML = parent.innerHTML + '<li data-role="list-divider">Total: '+ totalDiario.toFixed(2) +' horas ('+ total.toFixed(2) +' minutos) '+ total1 +' calorias.</li>';
+            
+            $(parent).listview("refresh");
+		/*$('#gridAtividades').html('<ul data-role="listview" data-inset="true" id="gridAtividades">');
 		for (var i=0;i<results.rows.length;i++)
 		{ 
-			$('#gridAtividades').append('<div class="ui-block-a"><div class="ui-bar ui-bar-c" onClick="excluirAtividade('+ results.rows.item(i).id +');">'+ results.rows.item(i).atividade +'</div></div>                <div class="ui-block-b"><div class="ui-bar ui-bar-c" onClick="excluirAtividade('+ results.rows.item(i).id +');">'+ results.rows.item(i).duracao +'</div></div>                <div class="ui-block-c"><div class="ui-bar ui-bar-c" onClick="excluirAtividade('+ results.rows.item(i).id +');">'+ results.rows.item(i).kcal +'</div></div>');
+			$('#gridAtividades').append('<li><a href="#">Apple</a></li><li><a href="#" onClick="excluirAtividade('+ results.rows.item(i).id +');">Executar a atividade <strong>"'+ results.rows.item(i).atividade +'"</strong> por <strong>'+ results.rows.item(i).duracao +'</strong> minutos, consumiu <strong>'+ results.rows.item(i).kcal +'</strong> calorias.</a></li>');
 			total = total + parseFloat(results.rows.item(i).duracao);
 			total1 = total1 + parseFloat(results.rows.item(i).kcal);
 		}
 		totalDiario = total /60;
-		$('#gridAtividades').append('<div class="ui-block-a"><div class="ui-bar ui-bar-d">Total</div></div>                <div class="ui-block-b"><div class="ui-bar ui-bar-d">'+ totalDiario.toFixed(2) +' ('+ total.toFixed(2) +')</div></div>                <div class="ui-block-c"><div class="ui-bar ui-bar-d">'+ total1 +'</div></div>');
+		$('#gridAtividades').append('<li>Total '+ totalDiario.toFixed(2) +' ('+ total.toFixed(2) +')'+ total1 +'</li>');*/
 	}
 	
 	function queryDB(tx) {
