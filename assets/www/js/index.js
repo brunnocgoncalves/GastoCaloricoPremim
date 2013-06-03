@@ -76,7 +76,7 @@
             for (var i=0; i<len; i++){
                         total = total + parseFloat(results.rows.item(i).duracao);
 			total1 = total1 + parseFloat(results.rows.item(i).kcal);
-                    parent.innerHTML = parent.innerHTML + '<li><a href="#" onClick="excluirAtividade('+ results.rows.item(i).id +');"><p>"'+ results.rows.item(i).atividade +'"</p> <p>'+ results.rows.item(i).duracao +'</p><p>'+ results.rows.item(i).kcal +'</p></a></li>';
+                    parent.innerHTML = parent.innerHTML + '<li><a href="#" onClick="excluirAtividade('+ results.rows.item(i).id +');"><p>"'+ results.rows.item(i).atividade +'"</p> <p>'+ results.rows.item(i).duracao +' minutos</p><p>'+ results.rows.item(i).kcal +' kcal</p></a></li>';
             }
             totalDiario = total /60;
             parent.innerHTML = parent.innerHTML + '<li data-role="list-divider">'+ totalDiario.toFixed(2) +' horas ('+ total.toFixed(2) +' min) '+ total1 +' kcal.</li>';
