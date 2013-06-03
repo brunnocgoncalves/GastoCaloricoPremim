@@ -19,11 +19,11 @@
 		db.transaction(createTable, errorCB, createTableSucess);
 		document.addEventListener("menubutton", onMenuKeyDown, false);
                 if (window.devicePixelRatio == 1.5) {
-                        alert("This is a high-density screen");
+                        //alert("This is a high-density screen");
                       } else if (window.devicePixelRatio == 0.75) {
-                        alert("This is a low-density screen");
+                        //alert("This is a low-density screen");
                       }
-                      alert(window.devicePixelRatio);
+                      //alert(window.devicePixelRatio);
     }
 	
 	// Handle the menu button
