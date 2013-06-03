@@ -76,10 +76,10 @@
             for (var i=0; i<len; i++){
                         total = total + parseFloat(results.rows.item(i).duracao);
 			total1 = total1 + parseFloat(results.rows.item(i).kcal);
-                    parent.innerHTML = parent.innerHTML + '<li><a href="#" onClick="excluirAtividade('+ results.rows.item(i).id +');">Executar a atividade <strong>"'+ results.rows.item(i).atividade +'"</strong> por <strong>'+ results.rows.item(i).duracao +'</strong> minutos, consumiu <strong>'+ results.rows.item(i).kcal +'</strong> calorias.</a></li>';
+                    parent.innerHTML = parent.innerHTML + '<li><a href="#" onClick="excluirAtividade('+ results.rows.item(i).id +');"><p>"'+ results.rows.item(i).atividade +'"</p> <p>'+ results.rows.item(i).duracao +'</p><p>'+ results.rows.item(i).kcal +'</p></a></li>';
             }
             totalDiario = total /60;
-            parent.innerHTML = parent.innerHTML + '<li data-role="list-divider">Total: '+ totalDiario.toFixed(2) +' horas ('+ total.toFixed(2) +' minutos) '+ total1 +' calorias.</li>';
+            parent.innerHTML = parent.innerHTML + '<li data-role="list-divider">'+ totalDiario.toFixed(2) +' horas ('+ total.toFixed(2) +' min) '+ total1 +' kcal.</li>';
             
             $(parent).listview("refresh");
 		/*$('#gridAtividades').html('<ul data-role="listview" data-inset="true" id="gridAtividades">');
