@@ -7,6 +7,7 @@
 	var selectedatividadeMet;
 	var totalDiario;
 	var idAtividade;
+	var getDetalhado;
 	
     // Wait for Cordova to load
     //
@@ -85,7 +86,7 @@
                     parent.innerHTML = parent.innerHTML + '<li><a href="#" onClick="excluirAtividade('+ results.rows.item(i).id +');"><p>"'+ results.rows.item(i).atividade +'"</p> <p>'+ results.rows.item(i).duracao +' minutos</p><p>'+ results.rows.item(i).kcal +' kcal</p></a></li>';
             }
             totalDiario = total /60;
-            parent.innerHTML = parent.innerHTML + '<li data-role="list-divider">'+ totalDiario.toFixed(2) +' horas ('+ total.toFixed(2) +' min) '+ total1 +' kcal.</li>';
+            parent.innerHTML = parent.innerHTML + '<li data-role="list-divider">'+ totalDiario.toFixed(2) +' horas ('+ total.toFixed(2) +' min) '+ total1.toFixed(2) +' kcal.</li>';
             
             $(parent).listview("refresh");
 		/*$('#gridAtividades').html('<ul data-role="listview" data-inset="true" id="gridAtividades">');
@@ -97,6 +98,7 @@
 		}
 		totalDiario = total /60;
 		$('#gridAtividades').append('<li>Total '+ totalDiario.toFixed(2) +' ('+ total.toFixed(2) +')'+ total1 +'</li>');*/
+		getDetalhado = total1;
 	}
 	
 	function queryDB(tx) {
@@ -691,6 +693,7 @@
 	
 	function calcularResultado(){
 		var x;
+		var y;
 		var get = calcularGET().toFixed(2); //verificar se massa gorda ou normal
 		console.log("GET " + get);
 		console.log("Kilo " + $("#kiloMeta").val().replace(',','.'));
@@ -703,8 +706,21 @@
 			x = parseFloat(get) + parseFloat($("#kiloMeta").val()) * 256.7;
 			console.log('Mais');
 		}
+		
+		if($('#selectObjetivoA').filter(':checked').val() == "menos"){
+			y = parseFloat(getDetalhado) - parseFloat($("#kiloMeta").val()) * 256.7;
+			console.log('Menos Det');
+		}
+		else{
+			y = parseFloat(getDetalhado) + parseFloat($("#kiloMeta").val()) * 256.7;
+			console.log('Mais Det');
+		}
+		
 		$("#resultadoMeta").text(parseFloat(x).toFixed(2));
 		$("#resultadoMeta").css("font-weight","bold");
+		
+		$("#resultadoMetaDetalhado").text(parseFloat(y).toFixed(2));
+		$("#resultadoMetaDetalhado").css("font-weight","bold");
 		
 	}
 	
