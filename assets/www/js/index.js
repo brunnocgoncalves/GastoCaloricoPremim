@@ -712,6 +712,7 @@
 		$('#atividadeSelecionada').html(atividade);
 		selectedatividade = atividade;
 		selectedatividadeMet = met;
+		calcularKcal();
 		$('#listaAtividadeSelect').popup("close");
 	}
 	
@@ -733,6 +734,9 @@
 		/*$('#gridAtividades').append('<div class="ui-block-a"><div class="ui-bar ui-bar-c">'+ selectedatividade +'</div></div>                <div class="ui-block-b"><div class="ui-bar ui-bar-c">'+$("#duracaoAtividade").val()+'</div></div>                <div class="ui-block-c"><div class="ui-bar ui-bar-c">'+ $('#kcalAtividade').val() +'</div></div>');*/
 		var db = window.openDatabase("Database", "1.0", "Gasto Calorico", 200000);
 		db.transaction(loadActivity, errorCB);
+		$('#atividadeSelecionada').html("Selecionar Atividade");
+		$("#kcalAtividade").val("");
+		$("#duracaoAtividade").val("");
 	}
 	
 	function excluirAtividade(id){
